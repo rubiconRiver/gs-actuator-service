@@ -7,7 +7,15 @@ import java.util.UUID;
 
 @Service
 public class GreetingService {
-    public Greeting sayHello(List<String> names){
-        return new Greeting(UUID.randomUUID().toString(), String.join(", ", names));
+    private final GreetingRepository greetingRepository;
+
+    public GreetingService(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
+    }
+
+    public Greeting sayHello(List<String> names) {
+        Greeting greeting = new Greeting(UUID.randomUUID().toString(), String.join(", ", names));
+        greetingRepository.save(greeting);
+        return greeting;
     }
 }
