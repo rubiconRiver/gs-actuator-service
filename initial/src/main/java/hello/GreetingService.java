@@ -8,6 +8,6 @@ import java.util.UUID;
 @Service
 public class GreetingService {
     public Greeting sayHello(List<String> names){
-        return new Greeting(UUID.randomUUID().toString(), String.join(",", names));
+        return new Greeting(UUID.randomUUID().toString(), String.join(", ", names));
     }
 }
