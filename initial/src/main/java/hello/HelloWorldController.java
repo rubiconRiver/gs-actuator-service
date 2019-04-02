@@ -19,11 +19,12 @@ public class HelloWorldController {
 
     @GetMapping("/hello-world")
     @ResponseBody
-    public Greeting sayHello(@RequestParam(name="name", required=false,
-            defaultValue="Stranger") String name, @RequestParam(name="age", required=false,
-            defaultValue="Stranger") String age) {
+    public Greeting sayHello(@RequestParam(name="name1", required=false,
+            defaultValue="Stranger") String name1, @RequestParam(name="name2", required=false,
+            defaultValue="Stranger") String name2) {
         List<String> names = new ArrayList<>();
-        names.add(name);
+        names.add(name1);
+        names.add(name2);
 
        return greetingService.sayHello(names);
     }
