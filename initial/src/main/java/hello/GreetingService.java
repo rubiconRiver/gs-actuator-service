@@ -18,4 +18,8 @@ public class GreetingService {
         greetingRepository.save(greeting);
         return greeting;
     }
+
+    public List<Greeting> showList(){
+        return greetingRepository.list();
+    }
 }

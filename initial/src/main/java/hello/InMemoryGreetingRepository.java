@@ -13,4 +13,9 @@ public class InMemoryGreetingRepository implements GreetingRepository {
     public void save(Greeting greeting) {
         greetings.add(greeting);
     }
+
+    @Override
+    public List<Greeting> list() {
+       return greetings;
+    }
 }

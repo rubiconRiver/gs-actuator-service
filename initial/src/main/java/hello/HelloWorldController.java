@@ -24,4 +24,10 @@ public class HelloWorldController {
        return greetingService.sayHello(names);
     }
 
+
+    @GetMapping("/greeting-list")
+    @ResponseBody
+    public List<Greeting> showList(){
+        return greetingService.showList();
+    }
 }
