@@ -1,11 +1,10 @@
 package hello;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,9 +24,15 @@ public class HelloWorldController {
     }
 
 
-    @GetMapping("/greeting-list")
+    @GetMapping("/greetings")
     @ResponseBody
     public List<Greeting> showList(){
-        return greetingService.showList();
+        return greetingService.findGreeting();
+    }
+
+    @PostMapping("/greetings")
+    @ResponseBody
+    public Greeting addGreeting(@RequestBody AddNamesDTO dto){
+        return greetingService.addGreeting(Arrays.asList(dto.name));
     }
 }

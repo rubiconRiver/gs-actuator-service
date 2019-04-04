@@ -19,7 +19,13 @@ public class GreetingService {
         return greeting;
     }
 
-    public List<Greeting> showList(){
+    public List<Greeting> findGreeting(){
         return greetingRepository.list();
+    }
+    
+    public Greeting addGreeting(List<String> names){
+        Greeting greeting = new Greeting(UUID.randomUUID().toString(), String.join(", ", names));
+        greetingRepository.save(greeting);
+        return greeting;
     }
 }
