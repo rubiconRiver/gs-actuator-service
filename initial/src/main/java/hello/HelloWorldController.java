@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-
+@CrossOrigin(origins = "*")
 @Controller
 public class HelloWorldController {
     private final GreetingService greetingService;
